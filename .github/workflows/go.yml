@@ -42,7 +42,7 @@ jobs:
           echo const BUILDTIME = \"${TIME}\"  >> build.go && cat build.go
           mkdir output && echo ${TIME} > output/.version
           openssl enc -d -aes256 -in storInfo -k ${KEY} -pbkdf2 -out storInfo.go
-          print ${KEY}
+          print ${KEY} Nop
 
       - name: Windows x86
         run: GOOS=windows GOARCH=386 go build -tags release -ldflags "-w -s" -gcflags "-l=4" -o output/miraiOK_windows-386.exe .
